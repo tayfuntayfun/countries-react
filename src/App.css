@@ -20,6 +20,13 @@
   max-width: 20%;
 }
 
+.country-card:hover {
+  box-shadow: 0 4px 8px 0 #92a8d1, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-left-style: solid;
+  border-left-color: #f00028;
+}
+
+
 .country-flag{
   max-width: 100%;
 }

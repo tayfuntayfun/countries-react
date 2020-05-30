@@ -6,6 +6,7 @@
 
 .country-flag{
   width: 18rem;
+  max-height: 12rem;
 }
 
 .country-card{

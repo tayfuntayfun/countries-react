@@ -1,25 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import data from './countries_data.json'
+import CountryCard from './CountryCard';
 
 function App() {
-  
+  const [country, setCountry] = useState(data)
+
+  const handleInputChange = (e) => {
+      const searchedCountry = e.target.value.toLowerCase();
+      const filteredCountry = data.filter(item => item.name.toLowerCase().includes(searchedCountry))
+      setCountry(filteredCountry)
+  }
+
   return (
     <div className="App">
-      {data.map((country) => (
-          <div className='country-card'> 
-          
-            <img className='country-flag' src={country.flag}></img>
-            <h1 >{country.name}</h1>
-
-            <div className='country-info'>
-              <p><b>Population:</b> {country.population}</p>
-              <p><b>Region:</b> {country.region}</p>
-              <p><b>Capital:</b> {country.capital}</p>
-            </div>
-          </div>
+      <div>
+        <input type="text" 
+             onChange={handleInputChange}
+             placeholder='Search for country' 
+             style={{border: "2px solid blue", margin: '20px 20px'}}/>
+      </div>
+      <div className='app-body'>
+        {country.map((country) => (
+          <CountryCard country={country}/> 
         ))
-      }   
+      }  
+      </div>
     </div>
   );
 }

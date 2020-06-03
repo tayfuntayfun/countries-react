@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import data from './countries_data.json'
 import CountryCard from './CountryCard';
+import NavBar from './Navbar'
 
 function App() {
   const [country, setCountry] = useState(data)
@@ -19,7 +20,8 @@ function App() {
 }
 
   return (
-    <div className="App">
+    <div className="root">
+      <NavBar />
       <div>
         <input type="text" 
              onChange={handleInputChange1}

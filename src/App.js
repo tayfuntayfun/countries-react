@@ -19,24 +19,30 @@ function App() {
     setCountry(filteredCountryByCity)
 }
 
+let filteredRegions = data.map((a) => a.region)
+let filtered = [...new Set(filteredRegions)]
+console.log(filtered)
+
   return (
     <div className="root">
       <NavBar />
-      <div>
-        <input type="text" 
+      <div className='searchCountry'>
+        <input type="text" className='country-input' 
              onChange={handleInputChange1}
              placeholder='Search for country' 
-             style={{border: "2px solid blue", 
-                     margin: '20px 20px', 
-                    width: '150px',
-                    padding: '10px'}}/>
-        <input type="text" 
+             />
+        <input type="text" className='country-input' 
              onChange={handleInputChange2}
              placeholder='Search for capital city' 
-             style={{border: "2px solid blue", 
-                     margin: '20px 20px', 
-                    width: '150px',
-                    padding: '10px'}}/>
+             />
+        <select name="" id="region-search" className="select-box">
+          <option value=""> All regions</option>
+          {filtered.map((region) => {
+              return region.length > 0 && <option value={region}> {region} </option>
+          })
+          } 
+          
+        </select>
       </div>
       <div className='app-body'>
         {country.map((country) => (

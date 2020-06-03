@@ -17,11 +17,17 @@ function App() {
     const searchedCity = e.target.value.toLowerCase();
     const filteredCountryByCity = data.filter(item => item.capital.toLowerCase().includes(searchedCity))
     setCountry(filteredCountryByCity)
-}
+  }
+
+  const handleInputChange3 = (e) => {
+    const searchedRegion = e.target.value;
+    const filteredRegion = data.filter(item => item.region.includes(searchedRegion))
+    console.log(filteredRegion)
+    setCountry(filteredRegion)
+  }
 
 let filteredRegions = data.map((a) => a.region)
 let filtered = [...new Set(filteredRegions)]
-console.log(filtered)
 
   return (
     <div className="root">
@@ -38,7 +44,11 @@ console.log(filtered)
         <select name="" id="region-search" className="select-box">
           <option value=""> All regions</option>
           {filtered.map((region) => {
-              return region.length > 0 && <option value={region}> {region} </option>
+              return region.length > 0 && 
+              <option value={region}
+                      onSelect ={handleInputChange3}
+                      style={{cursor:'grab'}}
+                      > {region} </option>
           })
           } 
           

@@ -24,8 +24,8 @@ export default function NavBar() {
     }
     return (
     <nav className="nav">
-        <div className="titleText">Where in the world?</div>
-        <div className="darkMode" onClick={darkMode}>Dark mode</div>        
+            <div className="titleText">Where in the world?</div>
+            <div className="darkMode" onClick={darkMode}>Dark mode</div>                
     </nav>
     )
 }
